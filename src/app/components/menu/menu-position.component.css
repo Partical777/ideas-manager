@@ -1,0 +1,67 @@
+#LogoName{
+  font-size: 1.5em;
+  height:36px;
+  font-weight:bold;
+  padding-left:35px;
+  padding-right:25px;
+}
+
+.main-menu {
+  padding: 30px;
+  background: rgb(250,112,154);
+  background: linear-gradient(-20deg, rgba(250,112,154,1) 25%, rgba(254,225,64,1) 75%);
+}
+
+
+#container{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align: center;
+}
+
+ .cardList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1490px
+  }
+  /* Column Gap */
+  .cardList > * {
+    box-sizing: border-box;
+    margin-top: 32px;
+    margin-right: 32px;
+  }
+  .cardList {
+    margin-left: 32px;
+  }
+  /* Item sizing */
+  .cardListItem {
+    flex: 0 1 calc(33.3% - 32px);
+    /* padding: 0px; */
+    /* text-align: center; */
+  }
+  /* medium size viewport */
+  @media screen and (max-width: 1200px) {
+    /* Column Gap */
+    .cardList > *:not(:last-child) {
+      margin-right: 32px;
+    }
+    /* Item sizing */
+    .cardListItem {
+      flex: 0 1 calc(50% - 32px);
+    }
+  }
+  /* small size viewport */
+  @media screen and (max-width: 849px) {
+    .cardList {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .cardList > *:not(:last-child) {
+      margin-right: unset;
+      margin-bottom: 32px;
+    }
+  }

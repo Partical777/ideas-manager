@@ -1,0 +1,30 @@
+:host {
+    display: block;
+    padding: 32px;
+    /* border: 1px solid black; */
+    border-radius: 8px;
+  }
+
+.example-card {
+  /* max-width: 400px; */
+  /* margin: 35px; */
+}
+
+.example-header-image {
+  background-image: url('https://images.unsplash.com/photo-1553364851-7de6d86102c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
+  background-size: cover;
+}
+
+mat-card-subtitle{
+  float: left;
+}
+
+.post-tile {
+  align-self: flex-start;
+  width: 100%-32px;
+  /* margin-right: 32px; */
+}
+
+mat-progress-bar{
+  height: 35px;
+}
