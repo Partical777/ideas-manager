@@ -12,8 +12,8 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="progress = progress - addsub">-{{addsub}}</button>
-    <button mat-button (click)="progress = progress + addsub">+{{addsub}}</button>
+    <button mat-button (click)="progress[index-1] = progress[index-1] - addsub">-{{addsub}}</button>
+    <button mat-button (click)="progress[index-1] = progress[index-1] + addsub">+{{addsub}}</button>
   </mat-card-actions>
   <mat-card-footer>
     <mat-progress-bar [value]="progress[index-1]"></mat-progress-bar>
