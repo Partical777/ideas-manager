@@ -35,6 +35,7 @@ export class CardComponent {
       val.forEach (a => {
         // console.log(a.timestamp);
         this.items.push(a);
+        console.log(a);
       });
     });
     
@@ -46,9 +47,9 @@ export class CardComponent {
     });
   }
 
-  ProjectName = ["Hand Draw Ideas", "Fuck", "Number 2"];
-  UserName = ["Partical", "Fuck", "Mia"];
-  progress = [35, 75, 60];
-  image = ["https://picsum.photos/300/200?random", "https://picsum.photos/300/200?random", "https://picsum.photos/300/200?random"];
-  Descripe = ["The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.", "Hi, there!", "How are you!"];
+  // ProjectName = ["Hand Draw Ideas", "Fuck", "Number 2"];
+  // UserName = ["Partical", "Fuck", "Mia"];
+  // progress = [35, 75, 60];
+  // image = ["https://picsum.photos/300/200?random", "https://picsum.photos/300/200?random", "https://picsum.photos/300/200?random"];
+  // Descripe = ["The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.", "Hi, there!", "How are you!"];
 }
