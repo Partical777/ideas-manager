@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 /**
  * @title Menu positioning
@@ -9,10 +10,36 @@ import {Component} from '@angular/core';
   styleUrls: ['menu-position.component.css'],
 })
 export class MenuPosition {
-  z = 3;
-  arr = [1, 2, 3];
+  z;
+  count = 1;
+  arr = [];
+
+  constructor(private db: AngularFirestore) {}
+
+  ngOnInit(){
+    this.db.collection('item').valueChanges().subscribe(val => {
+      this.count = 1;
+      this.arr = []
+      this.z = val.length;
+      val.forEach (a => {
+        this.arr.push( this.count );
+        this.count++;
+      });
+      console.log(this.z);
+      console.log(this.arr);
+    });
+    
+  }
+
 
   addCard(){
+    this.db.collection('item').add({
+      ProjectName : "string",
+      UserName : "string",
+      progress : 50,
+      image : "https://picsum.photos/300/200?random",
+      Descripe : "string"
+    });
     this.arr.push(this.z += 1);
     console.log(this.arr);
   }

@@ -7,7 +7,6 @@ export interface Idea {
   ProjectName : string;
   UserName : string;
   progress : number;
-  addsub : number;  //add or substract number
   image : string;
   Descripe : string;
 }
