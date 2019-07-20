@@ -18,7 +18,12 @@
   <mat-card-footer>
     <mat-progress-bar [value]="progress[index-1]"></mat-progress-bar>
   </mat-card-footer>
+  
 </mat-card>
+<button (click)=add()>Add</button>
+  <div *ngFor="let item of items">
+    {{item}}
+  </div>
 
 
 <!-- Copyright 2019 Google Inc. All Rights Reserved.

@@ -9,8 +9,8 @@ import {Component} from '@angular/core';
   styleUrls: ['menu-position.component.css'],
 })
 export class MenuPosition {
-  z = 2;
-  arr = [1, 2];
+  z = 3;
+  arr = [1, 2, 3];
 
   addCard(){
     this.arr.push(this.z += 1);
