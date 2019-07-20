@@ -3,7 +3,14 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 
 
-export interface Item { name: string; }
+export interface Idea { 
+  ProjectName : string;
+  UserName : string;
+  progress : number;
+  addsub : number;  //add or substract number
+  image : string;
+  Descripe : string;
+}
 /**
  * @title Card with multiple sections
  */
@@ -17,6 +24,7 @@ export interface Item { name: string; }
 export class CardComponent {
   @Input('index') index:number;
 
+  addsub = 10;  //add or substract number
   items = [];
 
   constructor(private db: AngularFirestore) {}
@@ -26,7 +34,7 @@ export class CardComponent {
       this.items = [];
       val.forEach (a => {
         // console.log(a.timestamp);
-        this.items.push(a.timestamp);
+        this.items.push(a);
       });
     });
     
@@ -41,7 +49,6 @@ export class CardComponent {
   ProjectName = ["Hand Draw Ideas", "Fuck", "Number 2"];
   UserName = ["Partical", "Fuck", "Mia"];
   progress = [35, 75, 60];
-  addsub = 10;  //add or substract number
   image = ["https://picsum.photos/300/200?random", "https://picsum.photos/300/200?random", "https://picsum.photos/300/200?random"];
   Descripe = ["The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.", "Hi, there!", "How are you!"];
 }

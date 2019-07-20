@@ -2,27 +2,27 @@
 <mat-card class="example-card post-tile">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image" ></div>
-    <mat-card-title>{{index}}. {{ProjectName[index-1]}}</mat-card-title>
-    <mat-card-subtitle>{{UserName[index-1]}}</mat-card-subtitle>
+    <mat-card-title>{{index}}. {{item[index-1].ProjectName}}</mat-card-title>
+    <mat-card-subtitle>{{item[index-1].UserName}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="image[index-1]" alt="Photo of a Shiba Inu">
+  <img mat-card-image [src]="item[index-1].image" alt="Photo of a Shiba Inu">
   <mat-card-content>
     <p>
-      {{Descripe[index-1]}}
+      {{item[index-1].Descripe}}
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="progress[index-1] = progress[index-1] - addsub">-{{addsub}}</button>
-    <button mat-button (click)="progress[index-1] = progress[index-1] + addsub">+{{addsub}}</button>
+    <button mat-button (click)="item[index-1].progress = item[index-1].progress - addsub">-{{addsub}}</button>
+    <button mat-button (click)="item[index-1].progress = item[index-1].progress + addsub">+{{addsub}}</button>
   </mat-card-actions>
   <mat-card-footer>
-    <mat-progress-bar [value]="progress[index-1]"></mat-progress-bar>
+    <mat-progress-bar [value]="item[index-1].progress"></mat-progress-bar>
   </mat-card-footer>
   
 </mat-card>
 <button (click)=add()>Add</button>
   <h3 *ngFor="let item of items">
-    {{item}}
+    {{item.progress}}
   </h3>
 
 
