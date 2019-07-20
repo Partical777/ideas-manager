@@ -19,17 +19,14 @@ export class CardComponent {
 
   items = [];
 
-  constructor(private db: AngularFirestore) {
-    console.log(this.db);
-  }
+  constructor(private db: AngularFirestore) {}
 
-  ngOnOnInit(){
-    this.db.collection('item').snapshotChanges.subscribe(serverItems => {
+  ngOnInit(){
+    this.db.collection('item').valueChanges().subscribe(val => {
       this.items = [];
-      serverItems.forEach (a => {
-        let item = a.payload.doc.data();
-        item.id = a.payload.doc.id;
-        this.items.push(item);
+      val.forEach (a => {
+        // console.log(a.timestamp);
+        this.items.push(a.timestamp);
       });
     });
     
