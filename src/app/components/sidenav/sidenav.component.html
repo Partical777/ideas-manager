@@ -1,4 +1,21 @@
 <!-- sidenav toolbar adding component -->
     <div class="toolbar">
-      <button (click)="addCard()" mat-raised-button color="primary">Add Idea</button>
+      <div class="form-container">
+        <mat-form-field>
+          <input matInput placeholder="Project Name">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="User Name">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Image Url">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Descripe">
+        </mat-form-field>
+        <button (click)="addCard()" mat-raised-button color="primary">Add Idea</button>
+      </div>
     </div>
