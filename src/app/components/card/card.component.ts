@@ -9,6 +9,7 @@ export interface Idea {
   progress : number;
   image : string;
   Descripe : string;
+  LastTime : timestamp;
 }
 /**
  * @title Card with multiple sections
@@ -34,17 +35,15 @@ export class CardComponent {
       val.forEach (a => {
         // console.log(a.timestamp);
         this.items.push(a);
-        console.log(a);
+        // console.log(a);
+      });
+      this.items = this.items.sort(function (a, b){
+        return a.LastTime < b.LastTime ? 1: -1;
       });
     });
     
   }
 
-  add(){
-    this.db.collection('item').add({
-      timestamp: "12345",
-    });
-  }
 
   // ProjectName = ["Hand Draw Ideas", "Fuck", "Number 2"];
   // UserName = ["Partical", "Fuck", "Mia"];

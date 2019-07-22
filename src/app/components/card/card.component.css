@@ -15,6 +15,11 @@
   background-size: cover;
 }
 
+.mat-card-header-text{
+  text-align: left;
+  width: 100%;
+}
+
 mat-card-subtitle{
   float: left;
 }
@@ -23,6 +28,10 @@ mat-card-subtitle{
   align-self: flex-start;
   width: 100%-32px;
   /* margin-right: 32px; */
+}
+
+p{
+  text-align: left;
 }
 
 mat-progress-bar{

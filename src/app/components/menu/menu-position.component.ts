@@ -38,7 +38,8 @@ export class MenuPosition {
       UserName : "string",
       progress : 50,
       image : "https://picsum.photos/300/200?random",
-      Descripe : "string"
+      Descripe : "string",
+      LastTime : new Date()
     });
     this.arr.push(this.z += 1);
     console.log(this.arr);
