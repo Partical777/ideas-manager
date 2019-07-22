@@ -23,5 +23,11 @@ export class SideNav {
       Descripe : this.Descripe,
       LastTime : new Date()
     });
+
+    this.ProjectName = "";
+    this.UserName = "";
+    this.ImageUrl = "";
+    this.Descripe = "";
+    alert("Succeful Adding!");
   }
 }
