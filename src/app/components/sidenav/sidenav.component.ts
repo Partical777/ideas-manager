@@ -7,16 +7,20 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
   styleUrls: ['sidenav.component.css'],
 })
 export class SideNav {
+  ProjectName;
+  UserName;
+  ImageUrl;
+  Descripe;
   
   constructor(private db: AngularFirestore) { }
 
   addCard(){
     this.db.collection('item').add({
-      ProjectName : "string",
-      UserName : "string",
-      progress : 50,
-      image : "https://picsum.photos/300/200?random",
-      Descripe : "string",
+      ProjectName : this.ProjectName,
+      UserName : this.UserName,
+      progress : 0,
+      image : (this.ImageUrl) ? this.ImageUrl : "https://picsum.photos/300/200?random",
+      Descripe : this.Descripe,
       LastTime : new Date()
     });
   }
