@@ -9,6 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from './environments/environment';
@@ -19,10 +21,11 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppComponent } from './app.component';
 import { MenuPosition } from './components/menu/menu-position.component';
 import { CardComponent } from './components/card/card.component';
+import { SideNav } from './components/sidenav/sidenav.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, MatMenuModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatCardModule, MatProgressBarModule, FlexLayoutModule, AngularFireModule.initializeApp(environment.firebase, 'HandIdeasManager'), AngularFirestoreModule, AngularFireDatabaseModule  ],
-  declarations: [ AppComponent, MenuPosition, CardComponent ],
+  imports:      [ BrowserModule, FormsModule, MatMenuModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatCardModule, MatProgressBarModule, MatSidenavModule, FlexLayoutModule, AngularFireModule.initializeApp(environment.firebase, 'HandIdeasManager'), AngularFirestoreModule, AngularFireDatabaseModule  ],
+  declarations: [ AppComponent, MenuPosition, CardComponent, SideNav ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

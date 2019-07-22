@@ -32,18 +32,7 @@ export class MenuPosition {
   }
 
 
-  addCard(){
-    this.db.collection('item').add({
-      ProjectName : "string",
-      UserName : "string",
-      progress : 50,
-      image : "https://picsum.photos/300/200?random",
-      Descripe : "string",
-      LastTime : new Date()
-    });
-    this.arr.push(this.z += 1);
-    console.log(this.arr);
-  }
+  
 
   removeCard(i){
     this.arr = this.arr.filter(inarr => inarr !== i);

@@ -1,38 +1,12 @@
 <div class="main-menu">
-  <button mat-icon-button (click)="sideNav.toggle()">
+  <button mat-icon-button (click)="drawer.toggle()">
     <!-- <mat-icon>{{ sideNav.opened ? 'close' : 'menu' }}</mat-icon> -->
     <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
   </button>
 
   <span id="LogoName">Show Ideas</span>
 
-
-  <!-- <button mat-button [matMenuTriggerFor]="aboveMenu">Above</button>
-  <mat-menu #aboveMenu="matMenu" yPosition="above">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
-
-  <button mat-button [matMenuTriggerFor]="belowMenu">Below</button>
-  <mat-menu #belowMenu="matMenu" yPosition="below">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
-
-  <button mat-button [matMenuTriggerFor]="beforeMenu">Before</button>
-  <mat-menu #beforeMenu="matMenu" xPosition="before">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
-
-
-  <button mat-button [matMenuTriggerFor]="afterMenu">After</button>
-  <mat-menu #afterMenu="matMenu" xPosition="after">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu> -->
-
-  <button mat-button (click)="addCard()">Add</button>
+  <!-- <button mat-button (click)="addCard()">Add</button> -->
   
   <button mat-button [matMenuTriggerFor]="removeMenu">Remove {{i}}</button>
   <mat-menu #removeMenu="matMenu" xPosition="after">
@@ -42,14 +16,26 @@
   </mat-menu>
 </div>
 
-<div id="container">
-  <div class="cardList">
-    <ng-container *ngFor="let i of arr">
-      <card class="cardListItem" [index]="i"></card>
-      <!-- <button mat-button (click)="removeCard(i)">Remove {{i}}</button> -->
-    </ng-container>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+
+    <sidenav></sidenav>
+    
+  </mat-drawer>
+
+
+  <div id="container">
+    <div class="cardList">
+      <ng-container *ngFor="let i of arr">
+        <card class="cardListItem" [index]="i"></card>
+        <!-- <button mat-button (click)="removeCard(i)">Remove {{i}}</button> -->
+      </ng-container>
+    </div>
   </div>
-</div>
+
+</mat-drawer-container>
+
+
 
 <!-- Copyright 2019 Google Inc. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
