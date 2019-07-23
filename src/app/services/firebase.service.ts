@@ -6,17 +6,6 @@ import { Idea } from './../idea.model';
 
 @Injectable()
 
-// export interface Idea { 
-//   ProjectName : string;
-//   UserName : string;
-//   progress : number;
-//   image : string;
-//   Descripe : string;
-//   LastTime : Date;
-// }
-
-// export interface IdeaId extends Idea { id: string; }
-
 export class FirebaseService {
 
   private ideaCollection: AngularFirestoreCollection<Idea>;
@@ -33,13 +22,12 @@ export class FirebaseService {
     );
   }
 
-  getPolicies() {
+  getIdeas() {
     return this.db.collection('item').snapshotChanges();
+  }
+  
+  deleteIdeas(ideaId: string){
+    this.db.doc('item/' + ideaId).delete();
   }
 
 }
-
-
-/**  Copyright 2019 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */

@@ -2,6 +2,8 @@ import {Component, OnInit, Input} from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
+import { FirebaseService } from '../../services/firebase.service';
+import { Idea } from '../../idea.model';
 
 /**
  * @title Card with multiple sections
@@ -17,17 +19,16 @@ export class CardComponent {
   @Input('data') data:Object;
 
   addsub = 10;  //add or substract number
-  items = [];
 
-  constructor(private db: AngularFirestore) {}
-
+  ideas: Idea[];
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit(){
     
   }
 
-  removeCard(){
-    console.log(this.data.id);
+  delete(id: string){
+    this.firebaseService.deleteIdeas(id);
   }
 
 

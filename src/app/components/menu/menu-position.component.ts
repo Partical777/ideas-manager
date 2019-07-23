@@ -6,17 +6,6 @@ import { map } from 'rxjs/operators';
 import { FirebaseService } from '../../services/firebase.service';
 import { Idea } from '../../idea.model';
 
-
-export interface Idea { 
-  ProjectName : string;
-  UserName : string;
-  progress : number;
-  image : string;
-  Descripe : string;
-  LastTime : string;
-}
-
-export interface IdeaId extends Idea { id: string; }
 /**
  * @title Menu positioning
  */
@@ -44,7 +33,7 @@ export class MenuPosition {
   // }
 
   ngOnInit(){
-    this.firebaseService.getPolicies().subscribe(data => {
+    this.firebaseService.getIdeas().subscribe(data => {
       this.ideas = data.map(e => {
         return {
           id: e.payload.doc.id,
@@ -53,6 +42,8 @@ export class MenuPosition {
       })
     });
   }
+
+  
 
 }
 
