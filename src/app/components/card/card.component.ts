@@ -3,14 +3,6 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 
 
-export interface Idea { 
-  ProjectName : string;
-  UserName : string;
-  progress : number;
-  image : string;
-  Descripe : string;
-  LastTime : timestamp;
-}
 /**
  * @title Card with multiple sections
  */
@@ -22,25 +14,15 @@ export interface Idea {
 
 
 export class CardComponent {
-  @Input('index') index:number;
+  @Input('data') data:Object;
 
   addsub = 10;  //add or substract number
   items = [];
 
   constructor(private db: AngularFirestore) {}
 
+
   ngOnInit(){
-    this.db.collection('item').valueChanges().subscribe(val => {
-      this.items = [];
-      val.forEach (a => {
-        // console.log(a.timestamp);
-        this.items.push(a);
-        // console.log(a);
-      });
-      this.items = this.items.sort(function (a, b){
-        return a.LastTime < b.LastTime ? 1: -1;
-      });
-    });
     
   }
 

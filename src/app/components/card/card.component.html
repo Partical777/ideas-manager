@@ -3,23 +3,23 @@
   <mat-card-header>
     <div mat-card-avatar class="example-header-image" ></div>
     <div class="mat-card-header-text">
-      <mat-card-title>{{index}}. {{items[index-1].ProjectName}}</mat-card-title>
-      <mat-card-subtitle>{{items[index-1].UserName}}</mat-card-subtitle>
-      <mat-card-subtitle style="float: right;">{{items[index-1].LastTime.toDate() | date:"h:mm:ss a MMM d, y"}}</mat-card-subtitle>
+      <mat-card-title>{{data.ProjectName}}</mat-card-title>
+      <mat-card-subtitle>{{data.UserName}}</mat-card-subtitle>
+      <mat-card-subtitle style="float: right;">{{data.LastTime.toDate() | date:"h:mm:ss a MMM d, y"}}</mat-card-subtitle>
     </div>
   </mat-card-header>
-  <img mat-card-image [src]="items[index-1].image" alt="Photo of a Shiba Inu">
+  <img mat-card-image [src]="data.image" alt="Photo of a Shiba Inu">
   <mat-card-content>
     <p>
-      {{items[index-1].Descripe}}
+      {{data.Descripe}}
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="items[index-1].progress = items[index-1].progress - addsub">-{{addsub}}</button>
-    <button mat-button (click)="items[index-1].progress = items[index-1].progress + addsub">+{{addsub}}</button>
+    <button mat-button (click)="data.progress = data.progress - addsub">-{{addsub}}</button>
+    <button mat-button (click)="data.progress = data.progress + addsub">+{{addsub}}</button>
   </mat-card-actions>
   <mat-card-footer>
-    <mat-progress-bar [value]="items[index-1].progress"></mat-progress-bar>
+    <mat-progress-bar [value]="data.progress"></mat-progress-bar>
   </mat-card-footer>
   
 </mat-card>

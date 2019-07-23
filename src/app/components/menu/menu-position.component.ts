@@ -1,6 +1,19 @@
 import {Component} from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
+
+export interface Idea { 
+  ProjectName : string;
+  UserName : string;
+  progress : number;
+  image : string;
+  Descripe : string;
+  LastTime : string;
+}
+
+export interface IdeaId extends Idea { id: string; }
 /**
  * @title Menu positioning
  */
@@ -14,25 +27,20 @@ export class MenuPosition {
   count = 1;
   arr = [];
 
-  constructor(private db: AngularFirestore) {}
-
-  ngOnInit(){
-    this.db.collection('item').valueChanges().subscribe(val => {
-      this.count = 1;
-      this.arr = []
-      this.z = val.length;
-      val.forEach (a => {
-        this.arr.push( this.count );
-        this.count++;
-      });
-      console.log(this.z);
-      console.log(this.arr);
-    });
-    
+  private ideaCollection: AngularFirestoreCollection<Idea>;
+  ideas: Observable<IdeaId[]>;
+  constructor(private db: AngularFirestore) {
+    this.ideaCollection = db.collection<Idea>('item');
+    this.ideas = this.ideaCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Idea;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
 
-
-  
+  ngOnInit(){}
 
   removeCard(i){
     this.arr = this.arr.filter(inarr => inarr !== i);
