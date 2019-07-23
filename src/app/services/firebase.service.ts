@@ -25,6 +25,14 @@ export class FirebaseService {
   getIdeas() {
     return this.db.collection('item').snapshotChanges();
   }
+
+  createIdeas(idea: Idea){
+    return this.db.collection('policies').add(idea);
+  }
+
+  updateIdeas(idea: Idea){
+    this.db.doc('item/' + idea.id).update(idea);
+  }
   
   deleteIdeas(ideaId: string){
     this.db.doc('item/' + ideaId).delete();

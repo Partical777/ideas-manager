@@ -27,6 +27,10 @@ export class CardComponent {
     
   }
 
+  update(idea: Idea){
+    this.firebaseService.updateIdeas(idea);
+  }
+
   delete(id: string){
     this.firebaseService.deleteIdeas(id);
   }
