@@ -2,20 +2,20 @@
     <div class="toolbar">
       <div class="form-container">
         <mat-form-field>
-          <input matInput placeholder="Project Name" [(ngModel)]="ProjectName">
+          <input matInput placeholder="Project Name" [(ngModel)]="idea.ProjectName">
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="User Name" [(ngModel)]="UserName">
+          <input matInput placeholder="User Name" [(ngModel)]="idea.UserName">
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Image Url" [(ngModel)]="ImageUrl">
+          <input matInput placeholder="Image Url" [(ngModel)]="idea.image">
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput placeholder="Descripe" [(ngModel)]="Descripe">
+          <input matInput placeholder="Descripe" [(ngModel)]="idea.Descripe">
         </mat-form-field>
-        <button (click)="addCard()" mat-raised-button color="primary">Add Idea</button>
+        <button (click)="create(idea)" mat-raised-button color="primary">Add Idea</button>
       </div>
     </div>

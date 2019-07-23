@@ -27,7 +27,7 @@ export class FirebaseService {
   }
 
   createIdeas(idea: Idea){
-    return this.db.collection('policies').add(idea);
+    return this.db.collection('item').add(idea);
   }
 
   updateIdeas(idea: Idea){
