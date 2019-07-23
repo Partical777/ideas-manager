@@ -3,6 +3,9 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { FirebaseService } from '../../services/firebase.service';
+import { Idea } from '../../idea.model';
+
 
 export interface Idea { 
   ProjectName : string;
@@ -23,24 +26,33 @@ export interface IdeaId extends Idea { id: string; }
   styleUrls: ['menu-position.component.css'],
 })
 export class MenuPosition {
-  z;
-  count = 1;
-  arr = [];
 
-  private ideaCollection: AngularFirestoreCollection<Idea>;
-  ideas: Observable<IdeaId[]>;
-  constructor(private db: AngularFirestore) {
-    this.ideaCollection = db.collection<Idea>('item');
-    this.ideas = this.ideaCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => {
-        const data = a.payload.doc.data() as Idea;
-        const id = a.payload.doc.id;
-        return { id, ...data };
-      }))
-    );
+  ideas: Idea[];
+  constructor(private firebaseService: FirebaseService) { }
+
+  // private ideaCollection: AngularFirestoreCollection<Idea>;
+  // ideas: Observable<IdeaId[]>;
+  // constructor(private db: AngularFirestore) {
+  //   this.ideaCollection = db.collection<Idea>('item');
+  //   this.ideas = this.ideaCollection.snapshotChanges().pipe(
+  //     map(actions => actions.map(a => {
+  //       const data = a.payload.doc.data() as Idea;
+  //       const id = a.payload.doc.id;
+  //       return { id, ...data };
+  //     }))
+  //   );
+  // }
+
+  ngOnInit(){
+    this.firebaseService.getPolicies().subscribe(data => {
+      this.ideas = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data()
+        } as Idea;
+      })
+    });
   }
-
-  ngOnInit(){}
 
 }
 

@@ -25,9 +25,14 @@ import { MenuPosition } from './components/menu/menu-position.component';
 import { CardComponent } from './components/card/card.component';
 import { SideNav } from './components/sidenav/sidenav.component';
 
+
+import { FirebaseService } from './services/firebase.service';
+
+
 @NgModule({
   imports:      [ BrowserModule, FormsModule, MatMenuModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatCardModule, MatProgressBarModule, MatSidenavModule, MatInputModule, MatFormFieldModule, FlexLayoutModule, AngularFireModule.initializeApp(environment.firebase, 'HandIdeasManager'), AngularFirestoreModule, AngularFireDatabaseModule  ],
   declarations: [ AppComponent, MenuPosition, CardComponent, SideNav ],
+  providers: [FirebaseService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

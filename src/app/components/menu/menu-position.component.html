@@ -18,7 +18,7 @@
 
   <div id="container">
     <div class="cardList">
-      <ng-container *ngFor="let idea of ideas | async">
+      <ng-container *ngFor="let idea of ideas">
         <card class="cardListItem" [data]="idea"></card>
         <!-- <button mat-button (click)="removeCard(i)">Remove {{i}}</button> -->
       </ng-container>
