@@ -26,6 +26,10 @@ export class CardComponent {
     
   }
 
+  removeCard(){
+    console.log(this.data.id);
+  }
+
 
   // ProjectName = ["Hand Draw Ideas", "Fuck", "Number 2"];
   // UserName = ["Partical", "Fuck", "Mia"];

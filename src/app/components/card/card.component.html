@@ -1,5 +1,8 @@
 <!-- <div>Card</div> -->
 <mat-card class="example-card post-tile">
+  <button mat-button (click)="removeCard()" id="deleteButton">
+    <mat-icon aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+  </button>
   <mat-card-header>
     <div mat-card-avatar class="example-header-image" ></div>
     <div class="mat-card-header-text">

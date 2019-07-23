@@ -6,14 +6,6 @@
 
   <span id="LogoName">Show Ideas</span>
 
-  <!-- <button mat-button (click)="addCard()">Add</button> -->
-  
-  <button mat-button [matMenuTriggerFor]="removeMenu">Remove {{i}}</button>
-  <mat-menu #removeMenu="matMenu" xPosition="after">
-    <ng-container *ngFor="let i of arr">
-      <button mat-menu-item (click)="removeCard(i)">{{i}}</button>
-    </ng-container>
-  </mat-menu>
 </div>
 
 <mat-drawer-container class="example-container" autosize>

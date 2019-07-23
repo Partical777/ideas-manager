@@ -42,10 +42,6 @@ export class MenuPosition {
 
   ngOnInit(){}
 
-  removeCard(i){
-    this.arr = this.arr.filter(inarr => inarr !== i);
-    console.log(this.arr);
-  }
 }
 
 
