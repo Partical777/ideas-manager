@@ -13,6 +13,12 @@
 }
 
 
+#YourIDEditor{
+  float: right;
+}
+
+
+
 #container{
     display:flex;
     align-items:center;

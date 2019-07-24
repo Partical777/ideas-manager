@@ -1,10 +1,16 @@
 <div class="main-menu">
-  <button mat-icon-button (click)="drawer.toggle()">
+	<button mat-icon-button (click)="drawer.toggle()">
     <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
   </button>
 
   <span id="LogoName">Show Ideas</span>
-
+  
+  <mat-form-field id="YourIDEditor">
+    <input matInput [placeholder]="'ID : ' + getID()" [(ngModel)]="thisUserID" (keyup.enter)="setID(thisUserID)">
+    <button mat-button *ngIf="thisUserID" matSuffix mat-icon-button aria-label="Clear" (click)="thisUserID=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
 </div>
 
 <mat-drawer-container class="example-container" autosize>

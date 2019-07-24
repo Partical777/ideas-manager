@@ -9,6 +9,14 @@ import { Idea } from './../idea.model';
 export class FirebaseService {
 
   UserID = 'item';
+  
+  getUserID() {
+    return this.UserID;
+  }
+
+  setUserID(userid) {
+    this.UserID = userid;
+  }
 
   private ideaCollection: AngularFirestoreCollection<Idea>;
   ideas: Observable<Idea[]>;

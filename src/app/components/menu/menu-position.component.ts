@@ -47,6 +47,15 @@ export class MenuPosition {
     });
   }
 
+  setID(id){
+    this.firebaseService.setUserID(id); 
+    this.ngOnInit();    //Reload you view sign
+  }
+
+  getID(){
+    return this.firebaseService.getUserID();
+  }
+
   
 
 }
