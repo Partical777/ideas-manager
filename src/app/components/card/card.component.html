@@ -16,6 +16,25 @@
     <p>
       {{data.Descripe}}
     </p>
+    <!-- <ng-container *ngFor="let url of data.Link">
+      <a href="{{url}}">
+        {{url}}
+      </a>
+    </ng-container> -->
+    
+    <mat-list *ngFor="let url of data.Link">
+      <mat-divider></mat-divider>
+      <mat-list-item><a href="{{url}}">{{url}}</a></mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+
+    <mat-form-field>
+      <input matInput placeholder="Add Links" [(ngModel)]="thisLink" (keyup.enter)="data.Link.push(thisLink);update(data)">
+      <button mat-button *ngIf="thisLink" matSuffix mat-icon-button aria-label="Clear" (click)="thisLink=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
   </mat-card-content>
   <mat-card-actions>
     <button mat-button (click)="data.progress = data.progress - addsub; update(data)">-{{addsub}}</button>

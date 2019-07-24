@@ -38,6 +38,17 @@ p{
   text-align: left;
 }
 
+mat-list > mat-list-item{
+  text-align : left;
+  margin : 10px auto;
+  color: red;
+}
+
+mat-form-field{
+  margin-top: 20px;
+  width: 100%;
+}
+
 mat-progress-bar{
   height: 35px;
 }

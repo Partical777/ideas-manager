@@ -5,4 +5,5 @@ export class Idea {
   image : string;
   Descripe : string;
   LastTime : Date;
+  Link : string[];
 }

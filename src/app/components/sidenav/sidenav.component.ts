@@ -18,6 +18,7 @@ export class SideNav {
     UserName : "",
     image : "",
     Descripe : "",
+    Link : [],
     progress : 0,
     LastTime : new Date()
   };
