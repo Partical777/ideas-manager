@@ -1,6 +1,5 @@
 <div class="main-menu">
   <button mat-icon-button (click)="drawer.toggle()">
-    <!-- <mat-icon>{{ sideNav.opened ? 'close' : 'menu' }}</mat-icon> -->
     <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
   </button>
 
@@ -20,9 +19,10 @@
     <div class="cardList">
       <ng-container *ngFor="let idea of ideas">
         <card class="cardListItem" [data]="idea"></card>
-        <!-- <button mat-button (click)="removeCard(i)">Remove {{i}}</button> -->
       </ng-container>
+      
     </div>
+    <div style="height:75vh;"></div><!-- If no ideas in firebase, it will set a height. In order to make sidenav work -->
   </div>
 
 </mat-drawer-container>

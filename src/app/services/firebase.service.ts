@@ -8,11 +8,13 @@ import { Idea } from './../idea.model';
 
 export class FirebaseService {
 
+  UserID = 'item';
+
   private ideaCollection: AngularFirestoreCollection<Idea>;
   ideas: Observable<Idea[]>;
 
   constructor(private db: AngularFirestore) {
-    this.ideaCollection = db.collection<Idea>('item');
+    this.ideaCollection = db.collection<Idea>(this.UserID);
     this.ideas = this.ideaCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Idea;
@@ -23,19 +25,19 @@ export class FirebaseService {
   }
 
   getIdeas() {
-    return this.db.collection('item').snapshotChanges();
+    return this.db.collection(this.UserID).snapshotChanges();
   }
 
   createIdeas(idea: Idea){
-    return this.db.collection('item').add(idea);
+    return this.db.collection(this.UserID).add(idea);
   }
 
   updateIdeas(idea: Idea){
-    this.db.doc('item/' + idea.id).update(idea);
+    this.db.doc(this.UserID + '/' + idea.id).update(idea);
   }
   
   deleteIdeas(ideaId: string){
-    this.db.doc('item/' + ideaId).delete();
+    this.db.doc(this.UserID + '/' + ideaId).delete();
   }
 
 }
