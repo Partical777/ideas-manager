@@ -16,15 +16,15 @@
     <p>
       {{data.Descripe}}
     </p>
-    <!-- <ng-container *ngFor="let url of data.Link">
-      <a href="{{url}}">
-        {{url}}
-      </a>
-    </ng-container> -->
     
-    <mat-list *ngFor="let url of data.Link">
+    <mat-list *ngFor="let url of data.Link; index as i">
       <mat-divider></mat-divider>
-      <mat-list-item><a href="{{url}}">{{url}}</a></mat-list-item>
+      <mat-list-item>
+        <a href="{{url}}">{{url}}</a>
+        <button class="existLinkDeleteButton" mat-button mat-icon-button (click)="removeLink(i)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-list-item>
     </mat-list>
     <mat-divider></mat-divider>
 

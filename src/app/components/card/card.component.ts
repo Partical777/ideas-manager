@@ -32,7 +32,17 @@ export class CardComponent {
   }
 
   delete(id: string){
-    this.firebaseService.deleteIdeas(id);
+    if (confirm("Are you sure deleting this Idea?")) {
+      this.firebaseService.deleteIdeas(id);
+    }
+  }
+
+
+  removeLink(index){
+    if (confirm("Deleting this Url?")) {
+      this.data.Link.splice(index, 1);
+      this.update(this.data);
+    }
   }
 
 
