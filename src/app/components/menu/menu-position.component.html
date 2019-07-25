@@ -6,7 +6,7 @@
   <span id="LogoName">Show Ideas</span>
   
   <mat-form-field id="YourIDEditor">
-    <input matInput [placeholder]="'ID : ' + getID()" [(ngModel)]="thisUserID" (keyup.enter)="setID(thisUserID)">
+    <input matInput [placeholder]="'ID : ' + getID()" [(ngModel)]="thisUserID" (keyup.enter)="setID(thisUserID);thisUserID='';$event.target.blur()">
     <button mat-button *ngIf="thisUserID" matSuffix mat-icon-button aria-label="Clear" (click)="thisUserID=''">
       <mat-icon>close</mat-icon>
     </button>
