@@ -41,6 +41,7 @@ export class FirebaseService {
   }
 
   updateIdeas(idea: Idea){
+    idea.LastTime = new Date();
     this.db.doc(this.UserID + '/' + idea.id).update(idea);
   }
   
