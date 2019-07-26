@@ -45,6 +45,13 @@ export class CardComponent {
     }
   }
 
+  removeList(index){
+    if (confirm("Deleting this Item?")) {
+      this.data.List.splice(index, 1);
+      this.update(this.data);
+    }
+  }
+
 
   // ProjectName = ["Hand Draw Ideas", "Fuck", "Number 2"];
   // UserName = ["Partical", "Fuck", "Mia"];

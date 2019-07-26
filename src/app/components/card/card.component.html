@@ -16,17 +16,37 @@
     <p>
       {{data.Descripe}}
     </p>
-    
-    <mat-list *ngFor="let url of data.Link; index as i">
+
+    <mat-divider></mat-divider>
+
+    <h3 [hidden]="data.List.length == 0">Items</h3>
+    <mat-list *ngFor="let listItem of data.List; index as i">
+      <mat-list-item>
+        <h4>{{listItem}}</h4>
+        <button class="existListDeleteButton" mat-button mat-icon-button (click)="removeList(i)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-list-item>
       <mat-divider></mat-divider>
+    </mat-list>
+    
+    <h3 [hidden]="data.Link.length == 0">Links</h3>
+    <mat-list *ngFor="let url of data.Link; index as i">
       <mat-list-item>
         <a href="{{url}}">{{url}}</a>
         <button class="existLinkDeleteButton" mat-button mat-icon-button (click)="removeLink(i)">
           <mat-icon>close</mat-icon>
         </button>
       </mat-list-item>
+      <mat-divider></mat-divider>
     </mat-list>
-    <mat-divider></mat-divider>
+
+    <mat-form-field>
+      <input matInput placeholder="Add Items" [(ngModel)]="thisList" (keyup.enter)="data.List.push(thisList);update(data)">
+      <button mat-button *ngIf="thisList" matSuffix mat-icon-button aria-label="Clear" (click)="thisList=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
 
     <mat-form-field>
       <input matInput placeholder="Add Links" [(ngModel)]="thisLink" (keyup.enter)="data.Link.push(thisLink);update(data)">

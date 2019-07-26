@@ -6,4 +6,5 @@ export class Idea {
   Descripe : string;
   LastTime : Date;
   Link : string[];
+  List : string[];
 }

@@ -38,14 +38,24 @@ p{
   text-align: left;
 }
 
+h3{
+  margin:0;
+  padding:15px 0 0 0;
+}
+
 mat-list > mat-list-item{
   text-align : left;
   margin : 10px auto;
+}
+
+.existListDeleteButton{
+  margin: 0 0 0 auto;
   color: red;
 }
 
 .existLinkDeleteButton{
   margin: 0 0 0 auto;
+  color: red;
 }
 
 mat-form-field{
