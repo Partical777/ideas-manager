@@ -39,9 +39,17 @@ export class MenuPosition {
           ...e.payload.doc.data()
         } as Idea;
       })
-      //Sort by Date
+      // //Sort by Date
+      // this.ideas = this.ideas.sort(function (a, b){
+      //   return a.LastTime < b.LastTime ? 1: -1;
+      // });
+      // //Sort by CreateDate
+      // this.ideas = this.ideas.sort(function (a, b){
+      //   return a.CreateTime < b.CreateTime ? 1: -1;
+      // });
+      //Sort by CustomIndex
       this.ideas = this.ideas.sort(function (a, b){
-        return a.LastTime < b.LastTime ? 1: -1;
+        return a.CustomIndex < b.CustomIndex ? 1: -1;
       });
     });
   }

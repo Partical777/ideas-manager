@@ -5,6 +5,8 @@ export class Idea {
   image : string;
   Descripe : string;
   LastTime : Date;
+  CreateTime : Date;
+  CustomIndex : number;
   Link : string[];
   List : string[];
 }

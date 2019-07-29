@@ -12,6 +12,7 @@ import { Idea } from '../../idea.model';
 })
 export class SideNav {
   
+  ideas: Idea[];
   
   idea: Idea = {
     ProjectName : "",
@@ -21,13 +22,27 @@ export class SideNav {
     List : [],
     Link : [],
     progress : 0,
-    LastTime : new Date()
+    LastTime : new Date(),
+    CreateTime : new Date(),
+    CustomIndex : 0
   };
   constructor(private firebaseService: FirebaseService) { }
+
+  ngOnInit(){
+    this.firebaseService.getIdeas().subscribe(data => {
+      this.ideas = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data()
+        } as Idea;
+      })
+    });
+  }
 
   create(idea: Idea){
     this.idea.LastTime = new Date();
     this.idea.image = (this.idea.image) ? this.idea.image : "https://picsum.photos/300/200?random",
+    this.idea.CustomIndex = this.ideas.length;
     this.firebaseService.createIdeas(idea);
 
     this.idea.ProjectName = "";
