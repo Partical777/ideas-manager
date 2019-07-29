@@ -8,23 +8,32 @@ import { Idea } from './../idea.model';
 
 export class FirebaseService {
 
-  LabelID = 'nqic4VqSI9axVAkH4G9a6XJF39w2';
+  UserID = localStorage.getItem('UserID') ? localStorage.getItem('UserID') : "GuestsBoard";
+  LabelID = localStorage.getItem('LabelID') ? localStorage.getItem('LabelID') : "ideas";
 
-  userIdea = this.db.doc("users" + '/' + this.LabelID);
-  
-  getUserID() {
+  userIdea = this.db.doc("users" + '/' + this.UserID);
+
+  // getUserID() {
+  //   return this.UserID;
+  // }
+
+  // setUserID(userid) {
+  //   this.UserID = userid;
+  // }
+
+  getLabelID() {
     return this.LabelID;
   }
 
-  setUserID(userid) {
-    this.LabelID = userid;
+  setLabelID(labelid) {
+    this.LabelID = labelid;
   }
 
   private ideaCollection: AngularFirestoreCollection<Idea>;
   ideas: Observable<Idea[]>;
 
   constructor(private db: AngularFirestore) {
-    this.ideaCollection = db.collection<Idea>(this.LabelID);
+    this.ideaCollection = db.collection<Idea>(this.UserID);
     this.ideas = this.ideaCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Idea;
@@ -35,20 +44,20 @@ export class FirebaseService {
   }
 
   getIdeas() {
-    return this.userIdea.collection("ideas").snapshotChanges();
+    return this.userIdea.collection(this.LabelID).snapshotChanges();
   }
 
   createIdeas(idea: Idea){
-    return this.userIdea.collection("ideas").add(idea);
+    return this.userIdea.collection(this.LabelID).add(idea);
   }
 
   updateIdeas(idea: Idea){
     idea.LastTime = new Date();
-    this.userIdea.collection("ideas").doc(idea.id).update(idea);
+    this.userIdea.collection(this.LabelID).doc(idea.id).update(idea);
   }
   
   deleteIdeas(ideaId: string){
-    this.userIdea.collection("ideas").doc(ideaId).delete();
+    this.userIdea.collection(this.LabelID).doc(ideaId).delete();
   }
 
 }

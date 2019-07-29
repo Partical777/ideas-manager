@@ -22,23 +22,14 @@ export class MenuPosition {
 
   async login(){
     await this.authService.login();
-    this.ngOnInit();    //Reload you view sign
+    window.location.reload();
   }
-  logout(){
-    this.authService.logout();
+  async logout(){
+    await this.authService.logout();
+    window.location.reload();
   }
-  // private ideaCollection: AngularFirestoreCollection<Idea>;
-  // ideas: Observable<IdeaId[]>;
-  // constructor(private db: AngularFirestore) {
-  //   this.ideaCollection = db.collection<Idea>('item');
-  //   this.ideas = this.ideaCollection.snapshotChanges().pipe(
-  //     map(actions => actions.map(a => {
-  //       const data = a.payload.doc.data() as Idea;
-  //       const id = a.payload.doc.id;
-  //       return { id, ...data };
-  //     }))
-  //   );
-  // }
+  
+  
 
   ngOnInit(){
     this.firebaseService.getIdeas().subscribe(data => {
@@ -56,12 +47,12 @@ export class MenuPosition {
   }
 
   setID(id){
-    this.firebaseService.setUserID(id); 
+    this.firebaseService.setLabelID(id); 
     this.ngOnInit();    //Reload you view sign
   }
 
   getID(){
-    return this.firebaseService.getUserID();
+    return this.firebaseService.getLabelID();
   }
 
   

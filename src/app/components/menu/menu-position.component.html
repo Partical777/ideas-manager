@@ -6,20 +6,14 @@
   <span id="LogoName">Show Ideas</span>
 
   <mat-form-field id="YourIDEditor">
-    <input matInput [placeholder]="'ID : ' + getID()" [(ngModel)]="thisUserID" (keyup.enter)="setID(thisUserID);thisUserID='';$event.target.blur()">
-    <button mat-button *ngIf="thisUserID" matSuffix mat-icon-button aria-label="Clear" (click)="thisUserID=''">
+    <input matInput [placeholder]="'Label : ' + getID()" [(ngModel)]="thisLabelID" (keyup.enter)="setID(thisLabelID);thisLabelID='';$event.target.blur()">
+    <button mat-button *ngIf="thisLabelID" matSuffix mat-icon-button aria-label="Clear" (click)="thisLabelID=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
 
 
   <div *ngIf="authService.user$  | async; let user; else showLogin" class="GoogleSignInButton">
-    <!-- <h1>Hello {{ user.displayName }}!</h1>
-    <h1>Hello {{ user.email }}!</h1>
-    <h1>Hello {{ user.photoURL }}!</h1>
-    <h1>Hello {{ user.uid }}!</h1>
-    <h1>Hello {{ user.lastSignInTime }}!</h1>
-    <h1>Hello {{ user.creationTime }}!</h1> -->
     <button (click)="logout()" mat-flat-button color="primary">
       <img [src]="user.photoURL" width="30" height="30" style="border-radius: 50%;">
       {{ user.displayName }} Logout

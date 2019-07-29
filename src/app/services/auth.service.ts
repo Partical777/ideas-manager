@@ -42,7 +42,7 @@ export class AuthService {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
-    this.firebaseService.setUserID(user.uid);
+    // this.firebaseService.setUserID(user.uid);
 
     const data = { 
       uid : user.uid,
@@ -60,8 +60,12 @@ export class AuthService {
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
     this.updateUserData(credential.user);
+    localStorage.setItem('UserID', credential.user.uid);
+    localStorage.setItem('LabelID', 'ideas');
   }
   logout() {
     this.afAuth.auth.signOut();
+    localStorage.setItem('UserID', "");
+    localStorage.setItem('LabelID', "");
   }
 }
