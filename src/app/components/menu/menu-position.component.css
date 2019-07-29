@@ -17,6 +17,11 @@
   float: right;
 }
 
+.GoogleSignInButton{
+  float: right;
+  margin:10px;
+}
+
 
 
 #container{
