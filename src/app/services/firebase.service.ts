@@ -27,6 +27,7 @@ export class FirebaseService {
 
   setLabelID(labelid) {
     this.LabelID = labelid;
+    localStorage.setItem('LabelID', labelid);
   }
 
   private ideaCollection: AngularFirestoreCollection<Idea>;

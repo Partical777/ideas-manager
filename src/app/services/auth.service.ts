@@ -61,11 +61,9 @@ export class AuthService {
     const credential = await this.afAuth.auth.signInWithPopup(provider);
     this.updateUserData(credential.user);
     localStorage.setItem('UserID', credential.user.uid);
-    localStorage.setItem('LabelID', 'ideas');
   }
   logout() {
     this.afAuth.auth.signOut();
     localStorage.setItem('UserID', "");
-    localStorage.setItem('LabelID', "");
   }
 }

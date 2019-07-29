@@ -24,15 +24,17 @@
     <mat-icon>sort</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="sortIndex = 0;ngOnInit();">
+    <button mat-menu-item (click)="sortIndex = 0;ngOnInit();" [style.background]="sortIndex == 0 ? 'pink' : 'white'">
       <mat-icon>update</mat-icon>
       <span>Lastest Update</span>
     </button>
-    <button mat-menu-item (click)="sortIndex = 1;ngOnInit();">
+    <button mat-menu-item (click)="sortIndex = 1;ngOnInit();"
+    [style.background]="sortIndex == 1 ? 'pink' : 'white'">
       <mat-icon>timer</mat-icon>
       <span>Creating Time</span>
     </button>
-    <button mat-menu-item (click)="sortIndex = 2;ngOnInit();">
+    <button mat-menu-item (click)="sortIndex = 2;ngOnInit();"
+    [style.background]="sortIndex == 2 ? 'pink' : 'white'">
       <mat-icon>swap_vert</mat-icon>
       <span>Customize</span>
     </button>

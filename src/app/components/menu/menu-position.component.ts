@@ -17,7 +17,7 @@ import { Idea } from '../../idea.model';
 })
 export class MenuPosition {
 
-  sortIndex = 0;
+  sortIndex = localStorage.getItem('SortIndex') ? localStorage.getItem('SortIndex') : 0;
   ideas: Idea[];
   constructor(private firebaseService: FirebaseService, private authService:AuthService) { }
 
@@ -53,16 +53,19 @@ export class MenuPosition {
 
   //============Sort===========
   LastDateSort(){
+    localStorage.setItem('SortIndex', 0);
     return this.ideas.sort(function (a, b){
         return a.LastTime < b.LastTime ? 1: -1;
       });
   }
   CreateDateSort(){
+    localStorage.setItem('SortIndex', 1);
     return this.ideas.sort(function (a, b){
         return a.CreateTime < b.CreateTime ? 1: -1;
       });
   }
   CustomIndexSort(){
+    localStorage.setItem('SortIndex', 2);
     return this.ideas.sort(function (a, b){
         return a.CustomIndex < b.CustomIndex ? 1: -1;
       });
