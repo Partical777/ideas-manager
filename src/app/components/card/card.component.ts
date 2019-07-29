@@ -18,6 +18,12 @@ import { Idea } from '../../idea.model';
 export class CardComponent {
   expandIcon = true;
 
+  dbProjectName = true;
+  dbDescripe = true;
+
+
+
+
 
   @Input('data') data:Object;
 
@@ -61,4 +67,9 @@ export class CardComponent {
   // progress = [35, 75, 60];
   // image = ["https://picsum.photos/300/200?random", "https://picsum.photos/300/200?random", "https://picsum.photos/300/200?random"];
   // Descripe = ["The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.", "Hi, there!", "How are you!"];
+
+  clickToggle(target){
+    console.log(target);
+    target = !target;
+  }
 }

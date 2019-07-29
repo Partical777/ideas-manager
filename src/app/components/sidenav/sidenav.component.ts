@@ -41,7 +41,8 @@ export class SideNav {
 
   create(idea: Idea){
     this.idea.LastTime = new Date();
-    this.idea.image = (this.idea.image) ? this.idea.image : "https://picsum.photos/300/200?random",
+    this.idea.CreateTime = new Date();
+    // this.idea.image = (this.idea.image) ? this.idea.image : "https://picsum.photos/300/200?random";
     this.idea.CustomIndex = this.ideas.length;
     this.firebaseService.createIdeas(idea);
 

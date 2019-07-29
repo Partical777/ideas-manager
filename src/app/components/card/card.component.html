@@ -6,16 +6,28 @@
   <mat-card-header>
     <div mat-card-avatar class="example-header-image" ></div>
     <div class="mat-card-header-text">
-      <mat-card-title>{{data.ProjectName}}</mat-card-title>
+      
+      <mat-card-title (dblclick)="dbProjectName = clickToggle(dbProjectName)">
+        <span [hidden]="!dbProjectName">{{data.ProjectName}}</span>
+        <input [ngStyle]="{'display' : dbProjectName ? 'none' : 'inline', 'background' : dbProjectName ? 'white' : 'pink'}" matInput value="{{data.ProjectName}}" (keyup.enter)="data.ProjectName = $event.target.value;update(data); clickToggle(dbProjectName);">
+      </mat-card-title>
+      
+      
       <mat-card-subtitle>{{data.UserName}}</mat-card-subtitle>
       <!-- <mat-card-subtitle style="float: right;">{{data.LastTime.toDate() | date:"h:mm:ss a MMM d, y"}}</mat-card-subtitle> -->
     </div>
   </mat-card-header>
-  <img mat-card-image [src]="data.image" alt="Photo of a Shiba Inu">
+  <img [hidden]="!data.image" mat-card-image [src]="data.image" alt="Photo of a Shiba Inu">
   <mat-card-content>
-    <p>
-      {{data.Descripe}}
-    </p>
+    <span (dblclick)="dbDescripe = clickToggle(dbDescripe)">
+      <p [hidden]="!dbDescripe">
+        {{data.Descripe}}
+      </p>
+      <p>
+        <input 
+          [ngStyle]="{'display' : dbDescripe ? 'none' : 'inline', 'background' : dbDescripe ? 'white' : 'pink'}" matInput value="{{data.Descripe}}" (keyup.enter)="data.Descripe = $event.target.value;update(data); clickToggle(dbDescripe);">
+      </p>
+    </span>
 
     <mat-divider></mat-divider>
 
