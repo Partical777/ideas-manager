@@ -44,11 +44,11 @@ export class FirebaseService {
 
   updateIdeas(idea: Idea){
     idea.LastTime = new Date();
-    this.db.doc(this.LabelID + '/' + idea.id).update(idea);
+    this.userIdea.collection("ideas").doc(idea.id).update(idea);
   }
   
   deleteIdeas(ideaId: string){
-    this.db.doc(this.LabelID + '/' + ideaId).delete();
+    this.userIdea.collection("ideas").doc(ideaId).delete();
   }
 
 }
