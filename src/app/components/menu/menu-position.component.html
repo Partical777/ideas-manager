@@ -5,12 +5,7 @@
 
   <span id="LogoName">Show Ideas</span>
 
-  <mat-form-field id="YourIDEditor">
-    <input matInput [placeholder]="'Label : ' + getID()" [(ngModel)]="thisLabelID" (keyup.enter)="setID(thisLabelID);thisLabelID='';$event.target.blur()">
-    <button mat-button *ngIf="thisLabelID" matSuffix mat-icon-button aria-label="Clear" (click)="thisLabelID=''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
+  
 
 
   <div *ngIf="authService.user$  | async; let user; else showLogin" class="GoogleSignInButton">
@@ -25,6 +20,30 @@
     </div>
   </ng-template>
 
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" id="SortChangeButton">
+    <mat-icon>sort</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="sortIndex = 0;ngOnInit();">
+      <mat-icon>update</mat-icon>
+      <span>Lastest Update</span>
+    </button>
+    <button mat-menu-item (click)="sortIndex = 1;ngOnInit();">
+      <mat-icon>timer</mat-icon>
+      <span>Creating Time</span>
+    </button>
+    <button mat-menu-item (click)="sortIndex = 2;ngOnInit();">
+      <mat-icon>swap_vert</mat-icon>
+      <span>Customize</span>
+    </button>
+  </mat-menu>
+
+  <mat-form-field id="YourIDEditor">
+    <input matInput [placeholder]="'Label : ' + getID()" [(ngModel)]="thisLabelID" (keyup.enter)="setID(thisLabelID);thisLabelID='';$event.target.blur()">
+    <button mat-button *ngIf="thisLabelID" matSuffix mat-icon-button aria-label="Clear" (click)="thisLabelID=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
   
 </div>
 

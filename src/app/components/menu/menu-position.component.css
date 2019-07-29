@@ -13,13 +13,18 @@
 }
 
 
+#SortChangeButton{
+  float: right;
+}
+
 #YourIDEditor{
   float: right;
+   margin-right:25px;
 }
 
 .GoogleSignInButton{
   float: right;
-  margin:10px;
+  margin-left:35px;
 }
 
 

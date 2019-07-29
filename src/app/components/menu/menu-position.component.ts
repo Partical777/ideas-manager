@@ -17,6 +17,7 @@ import { Idea } from '../../idea.model';
 })
 export class MenuPosition {
 
+  sortIndex = 0;
   ideas: Idea[];
   constructor(private firebaseService: FirebaseService, private authService:AuthService) { }
 
@@ -39,20 +40,35 @@ export class MenuPosition {
           ...e.payload.doc.data()
         } as Idea;
       })
-      // //Sort by Date
-      // this.ideas = this.ideas.sort(function (a, b){
-      //   return a.LastTime < b.LastTime ? 1: -1;
-      // });
-      // //Sort by CreateDate
-      // this.ideas = this.ideas.sort(function (a, b){
-      //   return a.CreateTime < b.CreateTime ? 1: -1;
-      // });
-      //Sort by CustomIndex
-      this.ideas = this.ideas.sort(function (a, b){
-        return a.CustomIndex < b.CustomIndex ? 1: -1;
-      });
+      //Sort
+      if(this.sortIndex == 0){
+        this.ideas = this.LastDateSort();
+      }else if(this.sortIndex == 1){
+        this.ideas = this.CreateDateSort();
+      }else if(this.sortIndex == 2){
+        this.ideas = this.CustomIndexSort();
+      }
     });
   }
+
+  //============Sort===========
+  LastDateSort(){
+    return this.ideas.sort(function (a, b){
+        return a.LastTime < b.LastTime ? 1: -1;
+      });
+  }
+  CreateDateSort(){
+    return this.ideas.sort(function (a, b){
+        return a.CreateTime < b.CreateTime ? 1: -1;
+      });
+  }
+  CustomIndexSort(){
+    return this.ideas.sort(function (a, b){
+        return a.CustomIndex < b.CustomIndex ? 1: -1;
+      });
+  }
+  //===========================
+
 
   setID(id){
     this.firebaseService.setLabelID(id); 
