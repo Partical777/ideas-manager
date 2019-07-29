@@ -66,3 +66,7 @@ mat-form-field{
 mat-progress-bar{
   height: 35px;
 }
+
+.expand-icon{
+  margin-top:10px;
+}

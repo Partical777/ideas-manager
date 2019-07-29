@@ -41,19 +41,29 @@
       <mat-divider></mat-divider>
     </mat-list>
 
-    <mat-form-field>
-      <input matInput placeholder="Add Items" [(ngModel)]="thisList" (keyup.enter)="data.List.push(thisList);update(data)">
-      <button mat-button *ngIf="thisList" matSuffix mat-icon-button aria-label="Clear" (click)="thisList=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
+    <div id="addItemLink" [style.display]="expandIcon ? 'none' : 'inline'">
+      <mat-form-field>
+        <input matInput placeholder="Add Items" [(ngModel)]="thisList" (keyup.enter)="data.List.push(thisList);update(data)">
+        <button mat-button *ngIf="thisList" matSuffix mat-icon-button aria-label="Clear" (click)="thisList=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Add Links" [(ngModel)]="thisLink" (keyup.enter)="data.Link.push(thisLink);update(data)">
-      <button mat-button *ngIf="thisLink" matSuffix mat-icon-button aria-label="Clear" (click)="thisLink=''">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Add Links" [(ngModel)]="thisLink" (keyup.enter)="data.Link.push(thisLink);update(data)">
+        <button mat-button *ngIf="thisLink" matSuffix mat-icon-button aria-label="Clear" (click)="thisLink=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    
+    <button mat-button mat-icon-button (click)="expandIcon = !expandIcon">
+      <mat-icon aria-hidden="false" aria-label="Example expand icon" [style.display]="expandIcon ? 'inline' : 'none'"
+      >expand_more</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Example expand icon"
+      [style.display]="expandIcon ? 'none' : 'inline'"
+      >expand_less</mat-icon>
+    </button>
 
   </mat-card-content>
   <mat-card-actions>

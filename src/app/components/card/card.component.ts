@@ -16,6 +16,9 @@ import { Idea } from '../../idea.model';
 
 
 export class CardComponent {
+  expandIcon = true;
+
+
   @Input('data') data:Object;
 
   addsub = 10;  //add or substract number
