@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { FirebaseService } from '../../services/firebase.service';
+import { AuthService } from '../../services/auth.service';
 import { Idea } from '../../idea.model';
 
 /**
@@ -17,8 +18,16 @@ import { Idea } from '../../idea.model';
 export class MenuPosition {
 
   ideas: Idea[];
-  constructor(private firebaseService: FirebaseService) { }
+  constructor(private firebaseService: FirebaseService, private authService:AuthService) { }
 
+  afAuth = this.authService.getafAuth();
+
+  login(){
+    this.authService.login();
+  }
+  logout(){
+    this.authService.logout();
+  }
   // private ideaCollection: AngularFirestoreCollection<Idea>;
   // ideas: Observable<IdeaId[]>;
   // constructor(private db: AngularFirestore) {

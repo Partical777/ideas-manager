@@ -49,4 +49,8 @@ export class FirebaseService {
     this.db.doc(this.UserID + '/' + ideaId).delete();
   }
 
+  createUserProfile(user){
+    this.db.collection(user.uid).add(user);
+  }
+
 }

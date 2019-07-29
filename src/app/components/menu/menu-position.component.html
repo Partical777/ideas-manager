@@ -4,7 +4,22 @@
   </button>
 
   <span id="LogoName">Show Ideas</span>
-  
+
+  <div *ngIf="afAuth.authState | async; let user; else showLogin">
+    <h1>Hello {{ user.displayName }}!</h1>
+    <h1>Hello {{ user.email }}!</h1>
+    <h1>Hello {{ user.photoURL }}!</h1>
+    <h1>Hello {{ user.uid }}!</h1>
+    <h1>Hello {{ user.metadata.lastSignInTime }}!</h1>
+    <h1>Hello {{ user.metadata.creationTime }}!</h1>
+    <h1>Hello {{ user.providerData }}!</h1>
+    <button (click)="logout()">Logout</button>
+  </div>
+  <ng-template #showLogin>
+    <p>Please login.</p>
+    <button (click)="login()">Login with Google</button>
+  </ng-template>
+
   <mat-form-field id="YourIDEditor">
     <input matInput [placeholder]="'ID : ' + getID()" [(ngModel)]="thisUserID" (keyup.enter)="setID(thisUserID);thisUserID='';$event.target.blur()">
     <button mat-button *ngIf="thisUserID" matSuffix mat-icon-button aria-label="Clear" (click)="thisUserID=''">

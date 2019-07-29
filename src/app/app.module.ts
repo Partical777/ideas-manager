@@ -20,6 +20,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from './environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 import { AppComponent } from './app.component';
@@ -29,12 +30,13 @@ import { SideNav } from './components/sidenav/sidenav.component';
 
 
 import { FirebaseService } from './services/firebase.service';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, MatMenuModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatCardModule, MatProgressBarModule, MatSidenavModule, MatInputModule, MatFormFieldModule, MatDividerModule, MatListModule, FlexLayoutModule, AngularFireModule.initializeApp(environment.firebase, 'HandIdeasManager'), AngularFirestoreModule, AngularFireDatabaseModule  ],
+  imports:      [ BrowserModule, FormsModule, MatMenuModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatCardModule, MatProgressBarModule, MatSidenavModule, MatInputModule, MatFormFieldModule, MatDividerModule, MatListModule, FlexLayoutModule, AngularFireModule.initializeApp(environment.firebase, 'HandIdeasManager'), AngularFirestoreModule, AngularFireDatabaseModule, AngularFireAuthModule  ],
   declarations: [ AppComponent, MenuPosition, CardComponent, SideNav ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, AuthService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
