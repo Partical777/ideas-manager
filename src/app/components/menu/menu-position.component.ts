@@ -20,10 +20,9 @@ export class MenuPosition {
   ideas: Idea[];
   constructor(private firebaseService: FirebaseService, private authService:AuthService) { }
 
-  afAuth = this.authService.getafAuth();
-
-  login(){
-    this.authService.login();
+  async login(){
+    await this.authService.login();
+    this.ngOnInit();    //Reload you view sign
   }
   logout(){
     this.authService.logout();

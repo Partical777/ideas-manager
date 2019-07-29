@@ -8,21 +8,23 @@ import { Idea } from './../idea.model';
 
 export class FirebaseService {
 
-  UserID = 'item';
+  LabelID = 'nqic4VqSI9axVAkH4G9a6XJF39w2';
+
+  userIdea = this.db.doc("users" + '/' + this.LabelID);
   
   getUserID() {
-    return this.UserID;
+    return this.LabelID;
   }
 
   setUserID(userid) {
-    this.UserID = userid;
+    this.LabelID = userid;
   }
 
   private ideaCollection: AngularFirestoreCollection<Idea>;
   ideas: Observable<Idea[]>;
 
   constructor(private db: AngularFirestore) {
-    this.ideaCollection = db.collection<Idea>(this.UserID);
+    this.ideaCollection = db.collection<Idea>(this.LabelID);
     this.ideas = this.ideaCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Idea;
@@ -33,20 +35,20 @@ export class FirebaseService {
   }
 
   getIdeas() {
-    return this.db.collection(this.UserID).snapshotChanges();
+    return this.userIdea.collection("ideas").snapshotChanges();
   }
 
   createIdeas(idea: Idea){
-    return this.db.collection(this.UserID).add(idea);
+    return this.userIdea.collection("ideas").add(idea);
   }
 
   updateIdeas(idea: Idea){
     idea.LastTime = new Date();
-    this.db.doc(this.UserID + '/' + idea.id).update(idea);
+    this.db.doc(this.LabelID + '/' + idea.id).update(idea);
   }
   
   deleteIdeas(ideaId: string){
-    this.db.doc(this.UserID + '/' + ideaId).delete();
+    this.db.doc(this.LabelID + '/' + ideaId).delete();
   }
 
 }

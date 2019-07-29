@@ -9,6 +9,8 @@ import { switchMap } from 'rxjs/operators';
 
 import * as firebase from 'firebase/app';
 
+import { FirebaseService } from './firebase.service';
+
 @Injectable()
 
 export class AuthService {
@@ -16,7 +18,8 @@ export class AuthService {
   user$: Observable<User>;
 
   constructor(private afAuth: AngularFireAuth,
-        private afs: AngularFirestore) { 
+        private afs: AngularFirestore,
+        private firebaseService: FirebaseService) { 
     this.afAuth.authState.subscribe((data) => {
       // console.log(data);
     });
@@ -39,6 +42,8 @@ export class AuthService {
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 
+    this.firebaseService.setUserID(user.uid);
+
     const data = { 
       uid : user.uid,
       displayName: user.displayName,
@@ -49,10 +54,6 @@ export class AuthService {
     } 
 
     return userRef.set(data, { merge: true })
-  }
-  
-  getafAuth(){
-    return this.afAuth;
   }
 
   async login() {
