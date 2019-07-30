@@ -6,7 +6,12 @@ import { map } from 'rxjs/operators';
 import { FirebaseService } from '../../services/firebase.service';
 import { AuthService } from '../../services/auth.service';
 import { Idea } from '../../idea.model';
-
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
+}
 /**
  * @title Menu positioning
  */
@@ -82,7 +87,16 @@ export class MenuPosition {
     return this.firebaseService.getLabelID();
   }
 
-  
+  tiles: Tile[] = [
+    {text: '1', cols: 1, rows: 150, color: 'lightblue'},
+    {text: '2', cols: 1, rows: 190, color: 'lightgreen'},
+    {text: '3', cols: 1, rows: 160, color: 'lightpink'},
+    {text: '4', cols: 1, rows: 120, color: '#DDBDF1'},
+    {text: '5', cols: 1, rows: 100, color: 'lightblue'},
+    {text: '6', cols: 1, rows: 200, color: 'lightgreen'},
+    {text: '7', cols: 1, rows: 180, color: 'lightpink'},
+    {text: '8', cols: 1, rows: 80, color: '#DDBDF1'},
+  ];
 
 }
 

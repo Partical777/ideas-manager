@@ -72,6 +72,16 @@
 
 </mat-drawer-container>
 
+<mat-grid-list cols="4" rowHeight="1px">
+  <mat-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+    {{tile.text}}
+  </mat-grid-tile>
+</mat-grid-list>
+
 
 
 <!-- Copyright 2019 Google Inc. All Rights Reserved.
