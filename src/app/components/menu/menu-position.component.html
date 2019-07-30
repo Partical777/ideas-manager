@@ -62,8 +62,8 @@
 
   <div id="container">
     <div class="cardList masonry">
-      <ng-container *ngFor="let idea of ideas; index as i">
-        <card class="cardListItem masonryItem" tabIndex="{{positionIndex[i]}}" [data]="idea"></card>
+      <ng-container *ngFor="let idea of ideas">
+        <card class="cardListItem masonryItem" [data]="idea"></card>
       </ng-container>
       
     </div>

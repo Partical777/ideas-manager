@@ -84,36 +84,6 @@ export class MenuPosition {
 
   
 
-  positionIndex = [];
-
-  // Waterfall Layout
-  resizeAllMasonryItems(){
-    // Get all item class objects in one list
-    let allItems = document.getElementsByClassName('masonryItem');
-    let arr4 = [0, 0, 0, 0];
-
-    for(var i=0;i<allItems.length;i++){
-      let tmpMin = this.findtheMin(arr4);
-      console.log(tmpMin);
-
-      arr4[tmpMin] += allItems[i].offsetHeight;
-      this.positionIndex.push(tmpMin);
-    }
-    console.log(this.positionIndex)
-  }
-
-  findtheMin(arr){
-    let min = arr[0];
-    let minIndex = 0;
-    arr.forEach(function(v, index){
-      if(v < min){
-        min = v;
-        minIndex = index;
-      }
-    });
-    return minIndex;
-  }
-  
 }
 
 
