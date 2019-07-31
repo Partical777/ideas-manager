@@ -37,27 +37,53 @@
     margin-top: 2em;
 }
 
-/*Waterfall Layout*/
-.cardList {    
-  justify-content: center;
-  max-width: 1490px
-}
+.cardList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1490px
+  }
+  /* Column Gap */
+  .cardList > * {
+    box-sizing: border-box;
+    margin-top: 32px;
+    margin-right: 32px;
+  }
+  .cardList {
+    margin-left: 32px;
+  }
+  /* Item sizing */
+  .cardListItem {
+    flex: 0 1 calc(33.3% - 32px);
+    /* padding: 0px; */
+    /* text-align: center; */
+  }
+  /* medium size viewport */
+  @media screen and (max-width: 1200px) {
+    /* Column Gap */
+    .cardList > *:not(:last-child) {
+      margin-right: 32px;
+    }
+    /* Item sizing */
+    .cardListItem {
+      flex: 0 1 calc(50% - 32px);
+    }
+  }
+  /* small size viewport */
+  @media screen and (max-width: 849px) {
+    .cardList {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-left: 0;
+    }
+    .cardList > *:not(:last-child) {
+      margin-right: unset;
+      margin-bottom: 32px;
+    }
+  }
 
-.cardList > * {
-  padding: 0;
-}
-
-.masonry { /* Masonry container */
-  column-count: 4;
-  column-gap: 2em;
-}
-
-.masonryItem { /* Masonry bricks or child elements */
-  background-color: #eee;
-  display: inline-block;
-  margin: 0 0 2em;
-  width: 100%;
-}
   
 
 

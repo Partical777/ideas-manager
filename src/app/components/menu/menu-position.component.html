@@ -61,9 +61,9 @@
 
 
   <div id="container">
-    <div class="cardList masonry">
+    <div class="cardList">
       <ng-container *ngFor="let idea of ideas">
-        <card class="cardListItem masonryItem" [data]="idea"></card>
+        <card class="cardListItem" [data]="idea"></card>
       </ng-container>
       
     </div>
@@ -72,15 +72,6 @@
 
 </mat-drawer-container>
 
-<mat-grid-list cols="4" rowHeight="1px">
-  <mat-grid-tile
-      *ngFor="let tile of tiles"
-      [colspan]="tile.cols"
-      [rowspan]="tile.rows"
-      [style.background]="tile.color">
-    {{tile.text}}
-  </mat-grid-tile>
-</mat-grid-list>
 
 
 
