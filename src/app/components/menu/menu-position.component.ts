@@ -6,12 +6,9 @@ import { map } from 'rxjs/operators';
 import { FirebaseService } from '../../services/firebase.service';
 import { AuthService } from '../../services/auth.service';
 import { Idea } from '../../idea.model';
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
+
+
+
 /**
  * @title Menu positioning
  */
