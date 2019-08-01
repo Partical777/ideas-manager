@@ -95,7 +95,7 @@ export class MenuPosition {
 //Colcade (masonry)
   heightArr = [0, 0, 0];
 
-  click123(){
+  Masonry(){
     let x = document.getElementsByClassName('cardListItem');
     
     for(let i = 0 ; i < x.length ; i++){
