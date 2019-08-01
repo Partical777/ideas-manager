@@ -84,7 +84,9 @@
     }
   }
 
-  
+  .grid-col{
+    min-width:450px;
+  }
 
 
   .example-sidenav {

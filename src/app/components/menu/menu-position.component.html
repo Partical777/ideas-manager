@@ -59,9 +59,13 @@
     
   </mat-drawer>
 
-
+  <button (click)="click123()">123456789</button>
   <div id="container">
     <div class="cardList">
+      <div id="grid-col--1" class="grid-col grid-col--1"></div>
+      <div id="grid-col--2" class="grid-col grid-col--2"></div>
+      <div id="grid-col--3" class="grid-col grid-col--3"></div>
+
       <ng-container *ngFor="let idea of ideas">
         <card class="cardListItem" [data]="idea"></card>
       </ng-container>

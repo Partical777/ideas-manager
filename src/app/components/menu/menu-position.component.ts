@@ -84,6 +84,51 @@ export class MenuPosition {
     return this.firebaseService.getLabelID();
   }
 
+
+
+
+
+
+
+
+
+//Colcade (masonry)
+  heightArr = [0, 0, 0];
+
+  click123(){
+    let x = document.getElementsByClassName('cardListItem');
+    
+    for(let i = 0 ; i < x.length ; i++){
+      console.log(this.findtheMin(this.heightArr));
+        switch (this.findtheMin(this.heightArr)){
+          case 0:
+            document.getElementById('grid-col--1').appendChild(x[i]);
+            this.heightArr[0] += x[i].offsetHeight;
+          break;
+          case 1:
+            document.getElementById('grid-col--2').appendChild(x[i]);
+            this.heightArr[1] += x[i].offsetHeight;
+          break;
+          case 2:
+            document.getElementById('grid-col--3').appendChild(x[i]);
+            this.heightArr[2] += x[i].offsetHeight;
+          break;
+        }
+    }
+    
+  }
+
+  findtheMin(arr){
+    let min = arr[0];
+    let minIndex = 0;
+    arr.forEach(function(v, index){
+      if(v < min){
+        min = v;
+        minIndex = index;
+      }
+    });
+    return minIndex;
+  }
 }
 
 
