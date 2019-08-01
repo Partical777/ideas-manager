@@ -34,12 +34,15 @@ import { SideNav } from './components/sidenav/sidenav.component';
 
 import { FirebaseService } from './services/firebase.service';
 import { AuthService } from './services/auth.service';
+import { MasonryService } from './services/masonry.service';
+
+import { MasonryDirective } from './directives/masonry.directive';
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, MatMenuModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatCardModule, MatProgressBarModule, MatSidenavModule, MatInputModule, MatFormFieldModule, MatDividerModule, MatListModule, MatGridListModule, DragDropModule, FlexLayoutModule, AngularFireModule.initializeApp(environment.firebase, 'HandIdeasManager'), AngularFirestoreModule, AngularFireDatabaseModule, AngularFireAuthModule  ],
-  declarations: [ AppComponent, MenuPosition, CardComponent, SideNav ],
-  providers: [FirebaseService, AuthService],
+  declarations: [ AppComponent, MenuPosition, CardComponent, SideNav, MasonryDirective ],
+  providers: [FirebaseService, AuthService, MasonryService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
