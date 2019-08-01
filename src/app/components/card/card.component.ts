@@ -1,4 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -71,5 +72,11 @@ export class CardComponent {
   clickToggle(target){
     console.log(target);
     target = !target;
+  }
+
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.data.List, event.previousIndex, event.currentIndex);
+    this.update(this.data);
   }
 }

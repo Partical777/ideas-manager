@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -36,7 +37,7 @@ import { AuthService } from './services/auth.service';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, MatMenuModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatCardModule, MatProgressBarModule, MatSidenavModule, MatInputModule, MatFormFieldModule, MatDividerModule, MatListModule, MatGridListModule, FlexLayoutModule, AngularFireModule.initializeApp(environment.firebase, 'HandIdeasManager'), AngularFirestoreModule, AngularFireDatabaseModule, AngularFireAuthModule  ],
+  imports:      [ BrowserModule, FormsModule, MatMenuModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatCardModule, MatProgressBarModule, MatSidenavModule, MatInputModule, MatFormFieldModule, MatDividerModule, MatListModule, MatGridListModule, DragDropModule, FlexLayoutModule, AngularFireModule.initializeApp(environment.firebase, 'HandIdeasManager'), AngularFirestoreModule, AngularFireDatabaseModule, AngularFireAuthModule  ],
   declarations: [ AppComponent, MenuPosition, CardComponent, SideNav ],
   providers: [FirebaseService, AuthService],
   bootstrap:    [ AppComponent ]
