@@ -10,10 +10,16 @@ export class MasonryDirective {
 
   ngOnInit(){
     // console.log(this.el.nativeElement);
+    let minIndex
     
-    let minIndex = this.masonryArr.getHeight();
-    document.getElementById('grid-col--' + minIndex).appendChild(this.el.nativeElement);
+    setTimeout(()=>{
+      minIndex = this.masonryArr.getHeight();
+      document.getElementById('grid-col--' + minIndex).appendChild(this.el.nativeElement);
     
-    this.masonryArr.setNewHeight(minIndex, this.el.nativeElement.offsetHeight);
+      this.masonryArr.setNewHeight(minIndex, this.el.nativeElement.offsetHeight);
+    }, 0);
+
+    
+    
   }
 }

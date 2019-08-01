@@ -15,6 +15,6 @@ export class MasonryService{
   
   setNewHeight(index, height){
     this.heightArr[index] += height;
-    console.log(this.heightArr);
+    // console.log(this.heightArr);
   }
 }
