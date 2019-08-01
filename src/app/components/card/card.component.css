@@ -6,7 +6,7 @@
   }
 
 .example-card {
-  /* max-width: 400px; */
+  max-width: 450px;
   /* margin: 35px; */
 }
 
@@ -83,7 +83,6 @@ mat-progress-bar{
 }
 
 .movingListBox {
-  width: 500px;
   max-width: 100%;
   /* border: solid 1px #ccc; */
   min-height: 60px;

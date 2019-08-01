@@ -1,4 +1,4 @@
-<!-- <div>Card</div> -->
+
 <mat-card class="example-card post-tile">
   <button mat-button (click)="delete(data.id)" id="deleteButton">
     <mat-icon aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
@@ -32,7 +32,7 @@
     <mat-divider></mat-divider>
 
     <h3 *ngIf="data.List.length !== 0">Items</h3>
-    <div cdkDropList class="movingListBox" (cdkDropListDropped)="dropList($event)">
+    <div cdkDropList *ngIf="data.List.length !== 0" class="movingListBox" (cdkDropListDropped)="dropList($event)">
       <mat-list cdkDrag class="movingListItem" *ngFor="let listItem of data.List; index as i">
         <mat-list-item>
           <mat-icon cdkDragHandle class="HovertoShow" id="drag_indicator">drag_indicator</mat-icon>
@@ -46,7 +46,7 @@
     </div>
     
     <h3 *ngIf="data.Link.length !== 0">Links</h3>
-    <div cdkDropList class="movingListBox" (cdkDropListDropped)="dropLink($event)">
+    <div cdkDropList *ngIf="data.Link.length !== 0" class="movingListBox" (cdkDropListDropped)="dropLink($event)">
       <mat-list cdkDrag class="movingListItem" *ngFor="let url of data.Link; index as i">
         <mat-list-item>
           <mat-icon cdkDragHandle class="HovertoShow" id="drag_indicator">drag_indicator</mat-icon>
@@ -93,10 +93,6 @@
   </mat-card-footer>
   
 </mat-card>
-<!-- <button (click)=add()>Add</button>
-  <h3 *ngFor="let item of items">
-    {{item.progress}}
-  </h3> -->
 
 
 <!-- Copyright 2019 Google Inc. All Rights Reserved.
