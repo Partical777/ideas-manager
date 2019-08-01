@@ -71,14 +71,17 @@ mat-progress-bar{
   margin-top:10px;
 }
 
-#drag_indicator{
-  cursor: pointer;
-}
+
 
 
 
 
 /* Drag&Drop sorting */
+#drag_indicator{
+  cursor: move;
+  color: grey;
+}
+
 .movingListBox {
   width: 500px;
   max-width: 100%;
@@ -90,18 +93,8 @@ mat-progress-bar{
   overflow: hidden;
 }
 
-movingListItem {
-  padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  cursor: move;
+.movingListItem {
   background: white;
-  font-size: 14px;
 }
 
 .cdk-drag-preview {

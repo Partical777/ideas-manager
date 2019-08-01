@@ -75,8 +75,13 @@ export class CardComponent {
   }
 
 
-  drop(event: CdkDragDrop<string[]>) {
+  dropList(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.data.List, event.previousIndex, event.currentIndex);
+    this.update(this.data);
+  }
+
+  dropLink(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.data.Link, event.previousIndex, event.currentIndex);
     this.update(this.data);
   }
 }
