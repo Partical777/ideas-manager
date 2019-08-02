@@ -18,13 +18,14 @@
 }
 
 #YourIDEditor{
-  float: right;
-   margin-right:25px;
+  /* float: right;
+   margin-right:25px; */
+   width: 100%;
 }
 
 .GoogleSignInButton{
-  float: right;
-  margin-left:35px;
+  /* float: right;
+  margin-left:35px; */
 }
 
 
@@ -56,6 +57,7 @@
   /* Item sizing */
   .cardListItem {
     flex: 0 1 calc(33.3% - 32px);
+    max-width:450px;
     /* padding: 0px; */
     /* text-align: center; */
   }
@@ -79,7 +81,8 @@
       margin-left: 0;
     }
     .cardList > *:not(:last-child) {
-      margin-right: unset;
+      width: 80%;
+      margin: 0 auto;
       margin-bottom: 32px;
     }
   }
@@ -96,3 +99,10 @@
 
 
 
+
+#DialogButton{
+  position: fixed;
+  z-index:3;
+  right: 35px;
+  bottom: 35px;
+}

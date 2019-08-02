@@ -3,25 +3,10 @@
     <mat-icon aria-hidden="false" aria-label="Example menu icon">menu</mat-icon>
   </button>
 
-  <span id="LogoName">Show Ideas</span>
-
-  
-
-
-  <div *ngIf="authService.user$  | async; let user; else showLogin" class="GoogleSignInButton">
-    <button (click)="logout()" mat-flat-button color="warn">
-      <img [src]="user.photoURL" width="30" height="30" style="border-radius: 50%;">
-      {{ user.displayName }} Logout
-    </button>
-  </div>
-  <ng-template #showLogin>
-    <div class="GoogleSignInButton">
-      <button (click)="login()" mat-flat-button>
-        <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
-        Login with Google
-      </button>
-    </div>
-  </ng-template>
+  <span id="LogoName">IdeasManager</span>
+  <button mat-fab id="DialogButton" (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
 
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" id="SortChangeButton">
     <mat-icon>sort</mat-icon>
@@ -43,30 +28,49 @@
     </button>
   </mat-menu>
 
-  <mat-form-field id="YourIDEditor">
-    <input matInput [placeholder]="'Label : ' + getID()" [(ngModel)]="thisLabelID" (keyup.enter)="setID(thisLabelID);thisLabelID='';$event.target.blur()">
-    <button mat-button *ngIf="thisLabelID" matSuffix mat-icon-button aria-label="Clear" (click)="thisLabelID=''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
-  
 </div>
+
+
+
 
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div *ngIf="authService.user$  | async; let user; else showLogin" class="GoogleSignInButton">
+      <button (click)="logout()" mat-flat-button color="warn">
+        <img [src]="user.photoURL" width="30" height="30" style="border-radius: 50%;">
+        {{ user.displayName }} Logout
+      </button>
+    </div>
+    <ng-template #showLogin>
+      <div class="GoogleSignInButton">
+        <button (click)="login()" mat-flat-button>
+          <img width="20px" alt="Google &quot;G&quot; Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+          Login with Google
+        </button>
+      </div>
+    </ng-template>
 
-    <sidenav></sidenav>
-    
+  
+
+    <mat-form-field id="YourIDEditor">
+      <input matInput [placeholder]="'Label : ' + getID()" [(ngModel)]="thisLabelID" (keyup.enter)="setID(thisLabelID);thisLabelID='';$event.target.blur()">
+      <button mat-button *ngIf="thisLabelID" matSuffix mat-icon-button aria-label="Clear" (click)="thisLabelID=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
   </mat-drawer>
+
+
 
   <div id="container">
     <div class="cardList">
-      <div id="grid-col--0" class="grid-col grid-col--0"></div>
+      <!-- <div id="grid-col--0" class="grid-col grid-col--0"></div>
       <div id="grid-col--1" class="grid-col grid-col--1"></div>
-      <div id="grid-col--2" class="grid-col grid-col--2"></div>
+      <div id="grid-col--2" class="grid-col grid-col--2"></div> -->
 
       <ng-container *ngFor="let idea of ideas">
-        <card masonry class="cardListItem" [data]="idea"></card>
+        <card  class="cardListItem" [data]="idea"></card>
       </ng-container>
       
     </div>

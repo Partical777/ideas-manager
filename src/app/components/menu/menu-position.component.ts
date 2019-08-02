@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -21,7 +22,7 @@ export class MenuPosition {
 
   sortIndex = localStorage.getItem('SortIndex') ? localStorage.getItem('SortIndex') : 0;
   ideas: Idea[];
-  constructor(private firebaseService: FirebaseService, private authService:AuthService) { }
+  constructor(private firebaseService: FirebaseService, private authService:AuthService, public dialog: MatDialog) { }
 
   async login(){
     await this.authService.login();
@@ -84,9 +85,37 @@ export class MenuPosition {
     return this.firebaseService.getLabelID();
   }
 
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '80%',
+      maxWidth: 450,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
 }
 
+@Component({
+  selector: 'dialog-overview',
+  templateUrl: "dialog-overview.html",
+  styleUrls: ['dialog-overview.css'],
+})
+export class DialogOverviewExampleDialog {
 
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
 /**  Copyright 2019 Google Inc. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
     can be found in the LICENSE file at http://angular.io/license */

@@ -1,12 +1,12 @@
 /* sidenav drag elements */
 :host .toolbar {
-  height: 100px;
-  width: 250px;
+  /* height: 100px; */
+  /* width: 250px; */
   text-align: center;
 }
 
 button {
-  height: 35px;
+  /* height: 35px; */
 }
 
 .form-container {
