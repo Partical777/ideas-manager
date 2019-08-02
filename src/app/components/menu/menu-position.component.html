@@ -4,7 +4,7 @@
   </button>
 
   <span id="LogoName">IdeasManager</span>
-  <button mat-fab id="DialogButton" (click)="openDialog()">
+  <button *ngIf="authService.user$  | async;" mat-fab id="DialogButton" (click)="openDialog()">
     <mat-icon>add</mat-icon>
   </button>
 
