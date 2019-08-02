@@ -49,6 +49,7 @@ export class FirebaseService {
   }
 
   createIdeas(idea: Idea){
+    this.userIdea.collection("LabelList0123456789").doc(this.LabelID).set({});
     return this.userIdea.collection(this.LabelID).add(idea);
   }
 
@@ -59,11 +60,19 @@ export class FirebaseService {
   
   deleteIdeas(ideaId: string){
     this.userIdea.collection(this.LabelID).doc(ideaId).delete();
+
+    //After delete item, check the collection is empty or not
+    this.userIdea.collection(this.LabelID).snapshotChanges().subscribe(data => {
+      if(data.length === 0){
+        this.userIdea.collection("LabelList0123456789").doc(this.LabelID).delete();
+      }
+    });
   }
 
   
 
   getLabelList(){
+    
     return this.userIdea.collection("LabelList0123456789").snapshotChanges();
   }
 }

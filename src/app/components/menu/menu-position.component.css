@@ -13,23 +13,32 @@
 }
 
 
+/* Side Nav */
+.example-sidenav {
+  padding: 20px;
+  text-align: center;
+}
+
 #SortChangeButton{
   float: right;
 }
 
 #YourIDEditor{
-  /* float: right;
-   margin-right:25px; */
-   width: 100%;
+   width: 80%;
+   margin-top:15px;
+}
+
+#YourIDDropdown{
+  width: 80%;
+  margin-top:15px;
 }
 
 .GoogleSignInButton{
-  /* float: right;
-  margin-left:35px; */
+  text-align: center;
 }
 
 
-
+/* Main Content */
 #container{
     display:flex;
     align-items:center;
@@ -87,14 +96,11 @@
     }
   }
 
-  .grid-col{
+.grid-col{
     width:450px;
   }
 
 
-  .example-sidenav {
-  padding: 20px;
-}
 
 
 

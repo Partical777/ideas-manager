@@ -60,7 +60,7 @@
     </mat-form-field>
 
     
-    <mat-form-field>
+    <mat-form-field id="YourIDDropdown">
       <mat-label>Label</mat-label>
       <mat-select [(value)]="selectedLabel" (selectionChange)="setID(selectedLabel)">
         <ng-container *ngFor="let label of LabelLists">
