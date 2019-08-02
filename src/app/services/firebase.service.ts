@@ -61,4 +61,9 @@ export class FirebaseService {
     this.userIdea.collection(this.LabelID).doc(ideaId).delete();
   }
 
+  
+
+  getLabelList(){
+    return this.userIdea.collection("LabelList0123456789").snapshotChanges();
+  }
 }

@@ -16,6 +16,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
@@ -41,7 +42,7 @@ import { MasonryDirective } from './directives/masonry.directive';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, MatMenuModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatCardModule, MatProgressBarModule, MatSidenavModule, MatInputModule, MatFormFieldModule, MatDividerModule, MatListModule, MatGridListModule, MatDialogModule, DragDropModule, FlexLayoutModule, AngularFireModule.initializeApp(environment.firebase, 'HandIdeasManager'), AngularFirestoreModule, AngularFireDatabaseModule, AngularFireAuthModule  ],
+  imports:      [ BrowserModule, FormsModule, MatMenuModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatCardModule, MatProgressBarModule, MatSidenavModule, MatInputModule, MatFormFieldModule, MatDividerModule, MatListModule, MatGridListModule, MatDialogModule, MatSelectModule, DragDropModule, FlexLayoutModule, AngularFireModule.initializeApp(environment.firebase, 'HandIdeasManager'), AngularFirestoreModule, AngularFireDatabaseModule, AngularFireAuthModule  ],
   declarations: [ AppComponent, MenuPosition, CardComponent, SideNav, DialogOverviewExampleDialog, MasonryDirective ],
   entryComponents: [DialogOverviewExampleDialog],
   providers: [FirebaseService, AuthService, MasonryService],

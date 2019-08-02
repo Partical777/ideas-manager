@@ -53,10 +53,20 @@
   
 
     <mat-form-field id="YourIDEditor">
-      <input matInput [placeholder]="'Label : ' + getID()" [(ngModel)]="thisLabelID" (keyup.enter)="setID(thisLabelID);thisLabelID='';$event.target.blur()">
+      <input matInput [placeholder]="'Add Label : ' + getID()" [(ngModel)]="thisLabelID" (keyup.enter)="setID(thisLabelID);thisLabelID='';$event.target.blur()">
       <button mat-button *ngIf="thisLabelID" matSuffix mat-icon-button aria-label="Clear" (click)="thisLabelID=''">
         <mat-icon>close</mat-icon>
       </button>
+    </mat-form-field>
+
+    
+    <mat-form-field>
+      <mat-label>Label</mat-label>
+      <mat-select [(value)]="selectedLabel">
+        <mat-option *ngFor="let label of LabelLists" [value]="label.id">
+          {{label.id}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
 
   </mat-drawer>

@@ -22,6 +22,8 @@ export class MenuPosition {
 
   sortIndex = localStorage.getItem('SortIndex') ? localStorage.getItem('SortIndex') : 0;
   ideas: Idea[];
+  LabelLists;
+  selectedLabel;
   constructor(private firebaseService: FirebaseService, private authService:AuthService, public dialog: MatDialog) { }
 
   async login(){
@@ -51,6 +53,13 @@ export class MenuPosition {
       }else if(this.sortIndex == 2){
         this.ideas = this.CustomIndexSort();
       }
+    });
+    
+    // get LabelList
+    this.firebaseService.getLabelList().subscribe(data => {
+      this.LabelLists = data.map(e => {
+        return {id: e.payload.doc.id};
+      })
     });
   }
 
@@ -82,6 +91,7 @@ export class MenuPosition {
   }
 
   getID(){
+    this.selectedLabel = this.firebaseService.getLabelID();
     return this.firebaseService.getLabelID();
   }
 
