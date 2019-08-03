@@ -33,7 +33,7 @@
 
 
 
-<mat-drawer-container class="example-container" autosize>
+<mat-sidenav-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <div *ngIf="authService.user$  | async; let user; else showLogin" class="GoogleSignInButton">
       <button (click)="logout()" mat-flat-button color="warn">
@@ -53,7 +53,7 @@
   
 
     <mat-form-field id="YourIDEditor">
-      <input matInput [placeholder]="'Add Label : ' + getID()" [(ngModel)]="thisLabelID" (keyup.enter)="setID(thisLabelID);thisLabelID='';$event.target.blur()">
+      <input matInput [placeholder]="'Add Label : ' + getID()" [(ngModel)]="thisLabelID" (keyup.enter)="setID(thisLabelID);thisLabelID='';$event.target.blur();drawer.toggle()">
       <button mat-button *ngIf="thisLabelID" matSuffix mat-icon-button aria-label="Clear" (click)="thisLabelID=''">
         <mat-icon>close</mat-icon>
       </button>
@@ -62,7 +62,7 @@
     
     <mat-form-field id="YourIDDropdown">
       <mat-label>Label</mat-label>
-      <mat-select [(value)]="selectedLabel" (selectionChange)="setID(selectedLabel)">
+      <mat-select [(value)]="selectedLabel" (selectionChange)="setID(selectedLabel);drawer.toggle()">
         <ng-container *ngFor="let label of LabelLists">
           <mat-option [value]="label.id">
             {{label.id}}
@@ -89,7 +89,7 @@
     <div style="height:75vh;"></div><!-- If no ideas in firebase, it will set a height. In order to make sidenav work -->
   </div>
 
-</mat-drawer-container>
+</mat-sidenav-container>
 
 
 
