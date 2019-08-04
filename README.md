@@ -1,3 +1,3 @@
 # ideas-manager
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/ideas-manager)
+[Web App ](https://ideas-manager.stackblitz.io/)
