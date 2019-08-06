@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 
 import { FirebaseService } from '../../services/firebase.service';
+import { AuthService } from '../../services/auth.service';
 import { Idea } from '../../idea.model';
 
 /**
@@ -31,7 +32,7 @@ export class CardComponent {
   addsub = 10;  //add or substract number
 
   ideas: Idea[];
-  constructor(private firebaseService: FirebaseService) { }
+  constructor(private firebaseService: FirebaseService, private authService:AuthService) { }
 
   ngOnInit(){
     

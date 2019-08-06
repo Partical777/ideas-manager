@@ -1,6 +1,6 @@
 
 <mat-card class="example-card post-tile">
-  <button mat-button (click)="delete(data.id)" id="deleteButton">
+  <button *ngIf="authService.user$  | async;"  mat-button (click)="delete(data.id)" id="deleteButton">
     <mat-icon aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
   </button>
   <mat-card-header>
@@ -75,7 +75,7 @@
       </mat-form-field>
     </div>
     
-    <button mat-button mat-icon-button (click)="expandIcon = !expandIcon">
+    <button *ngIf="authService.user$  | async;" mat-button mat-icon-button (click)="expandIcon = !expandIcon">
       <mat-icon aria-hidden="false" aria-label="Example expand icon" [style.display]="expandIcon ? 'inline' : 'none'"
       >expand_more</mat-icon>
       <mat-icon aria-hidden="false" aria-label="Example expand icon"
@@ -84,7 +84,7 @@
     </button>
 
   </mat-card-content>
-  <mat-card-actions>
+  <mat-card-actions *ngIf="authService.user$  | async;">
     <button mat-button (click)="data.progress = data.progress - addsub; update(data)">-{{addsub}}</button>
     <button mat-button (click)="data.progress = data.progress + addsub; update(data)">+{{addsub}}</button>
   </mat-card-actions>
